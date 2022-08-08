@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <form action="" onsubmit="filter(event); event.preventDefault()">
+            <div class="column">
+                <div> Category <br>
+                    <select name="category">
+                        <option value="">Select</option>
+                        <option value="transport">Transportation</option>
+                        <option value="realEstate">Real estate</option>
+                        <option value="jobs">Jobs</option>  
+                    </select>
+                </div> 
+                <div>
+                    Miliage <br> from <input type="text" class="price" name="miliageFrom">
+                    to <input type="text" class="price" name="miliageTo">
+                </div> 
+                <div>
+                    Country <br>
+                    <select name="country" id="">
+                        <option value="">Select</option>
+                        <option value="germany">Germany</option>
+                        <option value="england">England</option>
+                        <option value="italy">Italy</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    Model <br>
+                    <select name="model" id="">
+                        <option value="">Select</option>
+                        <option value="audi">Audi</option>
+                        <option value="bmw">BMW</option>
+                        <option value="citroen">Citroen</option>
+                        <option value="opel">Opel</option>
+                    </select>
+                </div> 
+                <div> Power <br> from <input type="text" class="price" name="powerFrom">
+                    to <input type="text" class="price" name="powerTo"> 
+                </div>
+                <div>
+                    Color 
+                    <select name="color" id="">
+                        <option value="">Select</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    Price <br> from <input type="text" class="price" name ="priceFrom">
+                    to <input type="text" class="price" name="priceTo">
+                </div> 
+                <div>
+                    Fuel <br>
+                    <select name="fuel" id="">
+                        <option value="">Select</option>
+                        <option value="gas">Gas</option>
+                        <option value="electric">Electric</option>
+                        <option value="disel">Disel</option>
+                    </select>
+                </div> 
+                <div>
+                    Steering wheel <br>
+                    <select name="SteeringWheel" id="">
+                        <option value="">Select</option>
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    Year <br> from <input type="text" class="price" name="yearFrom">
+                    to <input type="text" class="price" name="yearTo"> 
+                </div>
+                <div>
+                    Transmission <br>
+                    <select name="transmission" id="">
+                        <option value="">Select</option>
+                        <option value="manual">Manual</option>
+                        <option value="automatic">Automatic</option>
+                    </select> 
+                </div>
+                <div>
+                    Condition <br>
+                    <select name="condition" id="">
+                        <option value="">Select</option>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    Volume <br> from <input type="text" class="price" name="volumeFrom">
+                    to <input type="text" class="price" name="volumeTo"> 
+                </div>
+                <div>
+                    Body type <br>
+                    <select name="bodyType" id="">
+                        <option value="">Select</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="hatchback">Hatchback</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit">
+                        Find
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="cards">
+        <!-- <div class="cardscomplet"> -->
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+        <!-- </div> -->
+        <!-- <div class="cardscomplet"> -->
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+            <div class="card">
+                <img src="car1.png" class="car">
+                <p class="car-description">AUDI|New car</p>
+                <p class="place-date">Krakow 25 July 2022</p>
+                <p class="year-kilometers">2020 - 100 000 km</p>
+                <p class="price">50 000 zl</p>
+            </div>
+        <!-- </div> -->
+    </div>
+</body>
+
+</html>

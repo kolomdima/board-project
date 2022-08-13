@@ -2,6 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Car, CarDocument } from './schemas/cars.shema';
+import { ObjectId } from 'bson';
+// import {ObjectID} from 'mongodb';
+
 
 @Injectable()
 export class AppService {
@@ -10,8 +13,6 @@ export class AppService {
     
     let findParams = {};
     for(const prop in queryParam){
-      // console.log(prop.slice(-2));
-      // console.log(prop.slice(0, prop.length - 2));
       if (prop.slice(-2) == 'To') {
         if (typeof findParams[prop.slice(0, prop.length - 2)] === "undefined") {
         findParams[prop.slice(0, prop.length - 2)] = {$lte:queryParam[prop]}
@@ -28,11 +29,21 @@ export class AppService {
         findParams[prop] = queryParam[prop];
       }
     }
-    console.log(findParams);
     return this.carModel.find(findParams);
   }
   addCars(carObject) {
     const car = new this.carModel(carObject);
     return car.save();
+  }
+
+  deleteCar(id) {
+    const delFiltr = {};
+    let mongodb = require('mongodb');
+    // delFiltr['_id'] = new ObjectId(id);
+    delFiltr['_id'] = new mongodb.ObjectId(id);
+    // delFiltr['model'] = 'audi';
+    console.log(delFiltr);
+    this.carModel.deleteOne({model:'audi'}).exec();
+    // this.carModel.findById(id).remove().exec();
   }
 }

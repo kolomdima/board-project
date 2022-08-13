@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="form.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">Main page</a>
+    <div>
+        <form onsubmit="event.preventDefault(); create(event)">
+            <div class="row"> Category 
+                <select name="category">
+                    <option value="">Select</option>
+                    <option value="transport">Transportation</option>
+                    <option value="realEstate">Real estate</option>
+                    <option value="jobs">Jobs</option>  
+                </select>
+            </div>
+             <div class="row">
+                Miliage  
+                <input type="number" class="price" name="miliage"> 
+            </div> 
+           <div class="row">
+                Country 
+                <select name="country" id="">
+                    <option value="">Select</option>
+                    <option value="germany">Germany</option>
+                    <option value="england">England</option>
+                    <option value="italy">Italy</option>
+                </select>
+            </div>
+            <div class="row">
+                Model 
+                <select name="model" id="">
+                    <option value="">Select</option>
+                    <option value="audi">Audi</option>
+                    <option value="bmw">BMW</option>
+                    <option value="citroen">Citroen</option>
+                    <option value="opel">Opel</option>
+                </select>
+            </div>
+            <div class="row"> 
+                 Power  
+                 <input type="number" class="price" name="power">
+            </div>
+            <div class="row">
+                Color 
+                <select name="color" id="">
+                    <option value="">Select</option>
+                    <option value="red">Red</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                </select>
+            </div>
+            <div class="row">
+                Price 
+                <input type="number" class="price" name ="price">
+            </div> 
+            <div class="row">
+                Fuel 
+                <select name="fuel" id="">
+                    <option value="">Select</option>
+                    <option value="gas">Gas</option>
+                    <option value="electric">Electric</option>
+                    <option value="disel">Disel</option>
+                </select>
+            </div>
+            <div class="row">
+                Steering wheel 
+                <select name="steeringWheel" id="">
+                    <option value="">Select</option>
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </select>
+            </div> 
+            <div class="row">
+                Year 
+                <input type="number" class="price" name="year">
+            </div>
+            <div class="row">
+                Transmission 
+                <select name="transmission" id="">
+                    <option value="">Select</option>
+                    <option value="manual">Manual</option>
+                    <option value="automatic">Automatic</option>
+                </select> 
+            </div>
+            <div class="row">
+                Condition 
+                <select name="condition" id="">
+                    <option value="">Select</option>
+                    <option value="new">New</option>
+                    <option value="used">Used</option>
+                </select>
+            </div>
+            <div class="row">
+                Volume 
+                <input type="number" class="price" name="volume">
+            </div>
+            <div class="row">
+                Body type 
+                <select name="body" id="">
+                    <option value="">Select</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="pickup">Pickup</option>
+                    <option value="hatchback">Hatchback</option>
+                </select>
+            </div>
+
+            <button type="reset">Reset</button>
+            <button type="submit">Create</button>
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -28,3 +28,11 @@ function getResponse(url) {
 
   //http://localhost:3000/cars?category=tranport&color=red&priceFrom=100
   // 'http://localhost:3000/cars'
+
+  function deleteCar(event) {
+    let elements = {};
+    fetch('http://localhost:3000/cars/delete/'  + '62f295908e5f7aeb5fe6b51f',  {
+    method: 'DELETE',
+    
+})
+  }

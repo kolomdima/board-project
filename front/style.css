@@ -23,16 +23,17 @@ select {
     min-width: 200px;
 }
 .cards {
-    height: 620px;
+    height: 840px;
     width: 80%;
     display: flex;
     background-color: rgb(235, 230, 230);
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 10px;
     /* flex-direction: column; */
     flex-wrap: wrap;
+    flex: 1;
 }
 .cardscomplet {
     height: 300px;
@@ -50,7 +51,7 @@ select {
     width: 24%;
     /* margin-left: 5px; */
     margin-bottom: 10px;
-    height: 300px;
+    /* height: 310px; */
     margin-left: 5px;
     margin-right: 5px;
     /* border: 1px;
@@ -59,11 +60,13 @@ select {
     border-style: solid; */
 }
 img {
-    height: 40%;
-    padding-left: 15%;
+    /* height: 40%; */
+    /* padding-left: 15%; */
+    max-width: 100%;
 }
 .car-description {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
+    text-transform: capitalize;
 }
 .card>p {
     padding-left: 5px;
@@ -74,5 +77,13 @@ form {
 }
 .buttons {
     padding-top: 5px;
-    padding-left: 50%;
+    padding-left: 35%;
+}
+.find {
+    /* margin-left: 10px; */
+}
+.find>button {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 10px;
 }

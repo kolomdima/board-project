@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Query, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor, MulterModule } from '@nestjs/platform-express';
 import { ApiBody, ApiConsumes } from '@nestjs/swagger';
 import { AppService } from './app.service';
@@ -32,13 +32,18 @@ export class AppController {
   // })
   @UseInterceptors(FileInterceptor('file'))
   addCar(@Body() car: Cars, @Query() queryParam, @UploadedFile() file: Express.Multer.File){
-    this.appService.addCars(car); 
+    return this.appService.addCars(car); 
   }
   
-  @Delete('delete/:idr')
-  deleteCar(@Body() id, @Param('idr') idr){
-    // console.log(id);
-    console.log(idr);
-    this.appService.deleteCar(idr);
+  @Delete('delete/:id')
+  deleteCar( @Param('id') id){
+    
+    this.appService.deleteCar(id);
+  }
+
+  @Put('put/:id')
+  updateCar(@Param('id') id, @Body() car: Cars) {
+    // console.log(id, car);
+    this.appService.updateCar(id, car);
   }
 }

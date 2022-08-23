@@ -10,7 +10,7 @@ import { ObjectId } from 'bson';
 export class AppService {
   constructor(@InjectModel(Car.name) private carModel: Model<CarDocument>) {}
   getCars(queryParam) {
-    
+    let mongodb = require('mongodb');
     let findParams = {};
     for(const prop in queryParam){
       if (prop.slice(-2) == 'To') {
@@ -26,9 +26,15 @@ export class AppService {
             findParams[prop.slice(0, prop.length - 4)]['$gte'] = queryParam[prop];
           }
       } else {
-        findParams[prop] = queryParam[prop];
+        if(prop == '_id') {
+          findParams[prop] = new mongodb.ObjectId(queryParam[prop]);
+        } else {
+          findParams[prop] = queryParam[prop];
+        }
+        
       }
     }
+    console.log(findParams);
     return this.carModel.find(findParams);
   }
   addCars(carObject) {
@@ -39,11 +45,15 @@ export class AppService {
   deleteCar(id) {
     const delFiltr = {};
     let mongodb = require('mongodb');
-    // delFiltr['_id'] = new ObjectId(id);
     delFiltr['_id'] = new mongodb.ObjectId(id);
-    // delFiltr['model'] = 'audi';
-    console.log(delFiltr);
-    this.carModel.deleteOne({model:'audi'}).exec();
-    // this.carModel.findById(id).remove().exec();
+    
+    this.carModel.deleteOne(delFiltr).exec();
+  }
+  updateCar(id, car) {
+    let mongodb = require('mongodb');
+    let delFiltr = {};
+    delFiltr['_id'] = new mongodb.ObjectId(id);
+    console.log( car);
+    this.carModel.updateOne(delFiltr, car).exec();
   }
 }

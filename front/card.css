@@ -1,0 +1,17 @@
+.picture>img {
+    max-width: 300px;
+    margin-left: 100px;
+}
+.description {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    /* padding-left: 50px; */
+}
+.story {
+    text-transform: uppercase;
+    
+}
+.table>table {
+    width: 50%;
+    padding-left: 50px;
+}

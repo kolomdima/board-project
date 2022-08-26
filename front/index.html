@@ -12,7 +12,13 @@
 </head>
 
 <body>
-    <a href="form.html">Add new car</a>
+    <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Home</li>  
+          <li class="breadcrumb-item"><a href="form.html">Add new car</a></li>
+        </ol>
+      </nav>
+    
     <div class="main">
         <form action="" onsubmit="filter(event); event.preventDefault()">
             <div class="column">
@@ -129,9 +135,11 @@
             </div>
         </form>
     </div>
+    
     <div class="cards" id="cards">
-        
+
     </div>
+   
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">

@@ -1,15 +1,17 @@
 const toastLiveExample = document.getElementById('liveToast')
 const toast = new bootstrap.Toast(toastLiveExample)
 const defaultUrl = 'http://localhost:3000/cars';
+let filtrUrl = defaultUrl;
 function getResponse(url) {
     fetch(url)
     .then((response) => {
         return response.json();
     })
     .then((data) => {
-        // console.log(data);
+        console.log(data);
+        
         document.getElementById('cards').innerHTML = '';
-        data.forEach(element => {
+        data.data.forEach(element => {
           document.getElementById('cards').innerHTML += (`
           
           <div class="card" id="card-${element._id}">
@@ -31,6 +33,16 @@ function getResponse(url) {
           </div>
       </div>`)
         });
+        let lim = Math.ceil(data.size / 8);
+        let liElements = '';
+          for (let i=1; i<=lim; i++) {
+            liElements += `<li class="page-item"><a class="page-link" onclick="paginationFiltr(${i})">${i}</a></li>`;
+          }
+        document.getElementById('cards').innerHTML += (`<nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          ${liElements}
+          </ul>        
+        </nav>`);
     });
 }
 
@@ -45,8 +57,19 @@ function getResponse(url) {
     }
     url = url.substring(0, url.length -1);
     console.log(url);
+    filtrUrl = url;
     getResponse(url);
     
+  }
+
+  function paginationFiltr (page) {
+    let url = '';
+    if (filtrUrl.indexOf('?') > -1) {
+      url = filtrUrl + '&page=' + page;
+    } else {
+      url = filtrUrl + '?page=' + page;
+    }
+    getResponse(url);
   }
   
   getResponse(defaultUrl);

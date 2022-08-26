@@ -11,8 +11,15 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="index.html">Main page</a>
-    <div class="container">
+    
+    
+    <div class="container text-center ">
+        <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb" >
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item" ><a href="index.html">Home</a></li>  
+              <li class="breadcrumb-item active" aria-current="page">Car info</li>
+            </ol>
+          </nav>
         <div class="picture" id="picture">
             <img src="car1.png" class="img-fluid">
         </div>
@@ -20,7 +27,7 @@
             <div class="description" id="description">
                 
             </div>
-            <div class="table">
+            <div class="table col-4 offset-4">
                 <table class="table table-striped">
                     <tr>
                         <td>Model: <span id="model"></span></td>

@@ -3,13 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Car, CarDocument } from './schemas/cars.shema';
 import { ObjectId } from 'bson';
+import { DefaultSerializer } from 'v8';
 // import {ObjectID} from 'mongodb';
 
 
 @Injectable()
 export class AppService {
   constructor(@InjectModel(Car.name) private carModel: Model<CarDocument>) {}
-  getCars(queryParam) {
+ async getCars(queryParam) {
     let mongodb = require('mongodb');
     let findParams = {};
     for(const prop in queryParam){
@@ -33,9 +34,19 @@ export class AppService {
         }
         
       }
+    };
+    let returnObject = await this.carModel.find(findParams).skip((queryParam.page-1)*8).limit(8);
+    let size = await this.carModel.count(findParams);
+    console.log(size);
+    let returnMap = new Map;
+    returnMap.set('objectData', returnObject);
+    returnMap.set('objectSize', size);
+    
+    // return JSON.stringify(returnMap);
+    return {
+      data:returnObject,
+      size:size
     }
-    console.log(findParams);
-    return this.carModel.find(findParams);
   }
   addCars(carObject) {
     const car = new this.carModel(carObject);

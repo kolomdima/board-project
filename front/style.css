@@ -1,5 +1,5 @@
 .main {
-    height: 200px;
+    /* height: 200px; */
     width: 80%;
     display: flex;
     background-color: rgb(235, 230, 230);
@@ -84,4 +84,11 @@ form {
     width: 70%;
     margin-left: 15%;
     margin-top: 10px;
+}
+
+.sorting {
+   text-align: right; 
+   width: 80%;
+   margin: 0 auto;
+   background-color: rgb(235, 230, 230);
 }

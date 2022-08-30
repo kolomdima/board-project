@@ -35,7 +35,10 @@ export class AppService {
         
       }
     };
-    let returnObject = await this.carModel.find(findParams).skip((queryParam.page-1)*8).limit(8);
+    let sortObject = {
+      [queryParam.sortBy || 'createdAt']:queryParam.order || -1
+    }
+    let returnObject = await this.carModel.find(findParams).skip((queryParam.page-1)*8).limit(8).sort(sortObject);
     let size = await this.carModel.count(findParams);
     console.log(size);
     let returnMap = new Map;

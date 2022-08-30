@@ -22,14 +22,14 @@
     <div class="main">
         <form action="" onsubmit="filter(event); event.preventDefault()">
             <div class="column">
-                <div> Category <br>
+                <!-- <div> Category <br>
                     <select name="category">
                         <option value="">Select</option>
                         <option value="transport">Transportation</option>
                         <option value="realEstate">Real estate</option>
                         <option value="jobs">Jobs</option>  
                     </select>
-                </div> 
+                </div>  -->
                 <div>
                     Miliage <br> from <input type="text" class="price" name="miliageFrom">
                     to <input type="text" class="price" name="miliageTo">
@@ -134,6 +134,17 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div class="sorting">
+        <select name="sort" onchange="sortCars(event)">
+            <option value="priceAZ">By price A-Z</option>
+            <option value="priceZA">By price Z-A</option>
+            <option value="yearAZ">By year A-Z</option>
+            <option value="yearZA">By year Z-A</option>
+            <option value="milliageAZ">By milliage A-Z</option>
+            <option value="milliageZA">By milliage Z-A</option>
+        </select>
     </div>
     
     <div class="cards" id="cards">

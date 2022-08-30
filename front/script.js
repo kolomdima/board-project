@@ -2,6 +2,36 @@ const toastLiveExample = document.getElementById('liveToast')
 const toast = new bootstrap.Toast(toastLiveExample)
 const defaultUrl = 'http://localhost:3000/cars';
 let filtrUrl = defaultUrl;
+let currentSortingKey = {
+  name:'createdAt',
+  order:-1
+}
+const sortingKeys = {
+  priceAZ:{
+    name:'price',
+    order:1
+  },
+  priceZA:{
+    name:'price',
+    order:-1
+  },
+  yearAZ:{
+    name:'year',
+    order:1
+  },
+  yearZA:{
+    name:'year',
+    order:-1
+  },
+  milliageAZ:{
+    name:'miliage',
+    order:1
+  },
+  milliageZA:{
+    name:'miliage',
+    order:-1
+  }
+}
 function getResponse(url) {
     fetch(url)
     .then((response) => {
@@ -58,6 +88,10 @@ function getResponse(url) {
     url = url.substring(0, url.length -1);
     console.log(url);
     filtrUrl = url;
+    currentSortingKey = {
+      name:'createdAt',
+      order:-1
+    }
     getResponse(url);
     
   }
@@ -69,6 +103,7 @@ function getResponse(url) {
     } else {
       url = filtrUrl + '?page=' + page;
     }
+    url += '&sortBy=' + currentSortingKey.name + '&order=' + currentSortingKey.order;
     getResponse(url);
   }
   
@@ -89,6 +124,18 @@ function deleteCar(event, id) {
     toast.show();
   });
     
+}
+
+function sortCars(event) {
+  
+  let url = '';
+  if (filtrUrl.indexOf('?') > -1) {
+    url = filtrUrl + '&sortBy=' + sortingKeys[event.target.value].name + '&order=' + sortingKeys[event.target.value].order;
+  } else {
+    url = filtrUrl + '?sortBy=' + sortingKeys[event.target.value].name + '&order=' + sortingKeys[event.target.value].order;
+  };
+  currentSortingKey = sortingKeys[event.target.value];
+  getResponse(url);
 }
 
  

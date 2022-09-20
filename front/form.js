@@ -2,6 +2,8 @@
 let id = '';
 const toastLiveExample = document.getElementById('liveToast')
 const toast = new bootstrap.Toast(toastLiveExample)
+const toastLiveWrong = document.getElementById('wrongToast')
+const wrongToast = new bootstrap.Toast(toastLiveWrong)
 
 if(location.href.split('?id=').length > 1) {
     
@@ -10,13 +12,17 @@ if(location.href.split('?id=').length > 1) {
     function getResponse(url) {
     fetch(url)
     .then((response) => {
+        if (response.ok){
         return response.json();
+        } else {
+        throw new Error(response.statusText);
+        }
     })
     .then((data) => {
         let submitForm   = document.forms['mainForm'];
         submitForm.elements.createbutton.innerText = 'Update';
         for (let i = 0; i < submitForm.elements.length; ++i) {
-            submitForm.elements[i].value = data[0][submitForm.elements[i].name];
+            submitForm.elements[i].value = data.data[0][submitForm.elements[i].name];
         }   
     });
     };
@@ -42,16 +48,23 @@ function create(event) {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'token': window.localStorage.token
         },
         body: JSON.stringify(elements),
     }).then((response) => {
-        return response.json();
+        if (response.ok){
+            return response.json();
+            } else {
+            throw new Error(response.statusText);
+            }
     }).then((data) => {
         window.location.href = window.location.href + '?id=' + data._id;
         toast.show();
         
-    })
+    }).catch((error) => {
+        wrongToast.show();
+    });
     return false;
 } else {
     let elements = {};
@@ -71,12 +84,19 @@ function create(event) {
         method: 'PUT',
         headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'token': window.localStorage.token
         },
         body: JSON.stringify(elements),
-    }).then(() => {
+    }).then((response) => {
+        if (response.ok){
         toast.show();
-    })
+        } else {
+            throw new Error(response.statusText);
+        }
+    }).catch((error) => {
+        wrongToast.show();
+    });
     return false;
 }
 }

@@ -92,3 +92,19 @@ form {
    margin: 0 auto;
    background-color: rgb(235, 230, 230);
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.header {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.login {
+    text-align: right;
+    margin-left: 50%;
+    margin-right: 10px;
+}

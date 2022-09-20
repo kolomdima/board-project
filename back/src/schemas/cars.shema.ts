@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 
 export type CarDocument = Car & Document;
 
-@Schema({ timestamps: true})
+@Schema({ timestamps: true })
 export class Car {
   @Prop()
   model: string;
@@ -46,9 +46,6 @@ export class Car {
 
   @Prop()
   story: string;
-
 }
-
-
 
 export const CarSchema = SchemaFactory.createForClass(Car);
